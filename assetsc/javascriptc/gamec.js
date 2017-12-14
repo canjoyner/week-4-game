@@ -11,28 +11,35 @@ var wins = 0;
 var losses = 0;
 
 	function initialize(){
-		var goalNum = 0;
-		var buttonNum1 = "";
-		var buttonNum2 = "";
-		var buttonNum3 = "";
-		var buttonNum4 = "";
-		var score = "";
+		goalNum = "";
+		buttonNum1 = "";
+		buttonNum2 = "";
+		buttonNum3 = "";
+		buttonNum4 = "";
+		score = "";
 
-		// $("#scoreSpot #goal").empty();
+		$("#scoreSpot #goal").empty();
 	}
 
+function numPick(){
+	 goalNum = Math.floor(Math.random() * 120)+19;
 
-var goalNum = Math.floor(Math.random() * 50)+19;
+	 buttonNum1 = Math.floor(Math.random() * 12)+1;
+	 buttonNum2 = Math.floor(Math.random() * 12)+1;
+	 buttonNum3 = Math.floor(Math.random() * 12)+1;
+	 buttonNum4 = Math.floor(Math.random() * 12)+1;
 
-var buttonNum1 = Math.floor(Math.random() * 12)+1;
-var buttonNum2 = Math.floor(Math.random() * 12)+1;
-var buttonNum3 = Math.floor(Math.random() * 12)+1;
-var buttonNum4 = Math.floor(Math.random() * 12)+1;
+	 score = 0;
+}
 
-var score = 0;
+	var goalNum = Math.floor(Math.random() * 50)+19;
 
+	var buttonNum1 = Math.floor(Math.random() * 12)+1;
+	var buttonNum2 = Math.floor(Math.random() * 12)+1;
+	var buttonNum3 = Math.floor(Math.random() * 12)+1;
+	var buttonNum4 = Math.floor(Math.random() * 12)+1;
 
-
+	 score = 0;
 
 
 $("#picture1").on("click",function(){
@@ -58,18 +65,22 @@ scoreSpot.innerHTML = score;
 
 
  document.onclick = function(){
+ 	// numPick();
    if (score < goalNum){
     console.log ("keep going");
+
   }
   else if (score > goalNum){
     console.log ("you loose");
     losses = losses +1 ;
-    initialize(this)
+    score = 0;
+    numPick();
   }
   else {
     console.log("you win")
     wins = wins +1;
-    initialize(this)
+
+    numPick();
   }
 
 goal.innerHTML = goalNum;

@@ -78,6 +78,7 @@ timesLoss.innerHTML = losses
 console.log(goalNum)
 console.log(buttonNum1)
 console.log(score)
+console.log("he he he ")
 }
 
 
